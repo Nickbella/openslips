@@ -133,7 +133,7 @@ services:
             - PUID=$ENV_PUID
             - PGID=$ENV_PGID
             - TZ=$ENV_TZ
-            - SERVERURL=$ENV_SERVERURL
+            - SERVERURL=$45.151.152.161
             - SERVERPORT=$ENV_SERVERPORT
             - PEERS=1
             - PEERDNS=$ENV_PEERDNS
