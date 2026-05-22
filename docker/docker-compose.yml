@@ -48,7 +48,7 @@ services:
   tcpdump:
     image: nicolaka/netshoot
     container_name: aivpn_tcpdump
-    network_mode: host
+    network_mode: container:aivpn_wireguard
     command: >
       sh -c "
         echo 'Chờ wg0...';
