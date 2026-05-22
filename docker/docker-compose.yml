@@ -13,9 +13,11 @@ services:
   # ----------------------------------------------------------
   wireguard:
     image: lscr.io/linuxserver/wireguard
+    privileged: true
     container_name: aivpn_wireguard
     cap_add:
       - NET_ADMIN
+      - SYS_MODULE
     environment:
       - PUID=1000
       - PGID=1000
@@ -34,12 +36,10 @@ services:
       - "51820:51820/udp"
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
-    privileged: true
     restart: unless-stopped
     networks:
       vpn_net:
         ipv4_address: 172.20.0.2
-            
 
   # ----------------------------------------------------------
   # [2] tcpdump — bắt interface wg0
@@ -75,6 +75,7 @@ services:
     tty: true
     cap_add:
       - NET_ADMIN
+      - SYS_MODULE
     volumes:
       - ./data/pcap:/data/pcap
       - ./config/slips.yaml:/StratosphereLinuxIPS/config/slips.yaml
