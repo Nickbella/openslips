@@ -34,10 +34,12 @@ services:
       - "51820:51820/udp"
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
+    privileged: true
     restart: unless-stopped
     networks:
       vpn_net:
         ipv4_address: 172.20.0.2
+            
 
   # ----------------------------------------------------------
   # [2] tcpdump — bắt interface wg0
