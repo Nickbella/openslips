@@ -1,5 +1,3 @@
-version: '3.9'
-
 services:
     mod_redis:
         image: redis
